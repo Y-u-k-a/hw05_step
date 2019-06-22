@@ -17,7 +17,7 @@ network = json.loads(networkJson.decode('utf-8'))  # JSONとしてパースす�
 # このRequestHandlerでパタトカシーーのリクエストを処理して、結果を返す。
 class Pata(webapp2.RequestHandler):
     def get(self):
-        # とりあえずAとBをつなぐだけで返事を作っていますけど、パタタコカシーーになるように自分で直してください！
+        #パタトクカシーーになるように交互にpataに加える
         pata = ""
         for i in range(len(self.request.get("a"))):
             pata += self.request.get("a")[i]

@@ -1,0 +1,28 @@
+<html>
+  <head><title>乗り換え案内</title></head>
+  <body>
+    路線：
+    <ul>
+      <li> 出発 = {{request.get("a")}} </li>
+      <li> 到着 = {{request.get("b")}} </li>
+      <li> 乗るべき電車 = {{pata}} </li>
+　　　 <li> {% for line in nerwork %}
+	    {% for station in line["Stations"] %}
+	    {% if station == request.get("a") %}
+	    {{line.Name}}
+	    {% endif %}
+	    {% endfor %}
+	   {% endfor %}
+	    
+    
+	    
+          <form>
+		   <input type=text name=a>
+		   <input type=text name=b>
+		   <input type=submit>
+	  </form>
+
+    </ul>
+  </body>
+</html>
+  

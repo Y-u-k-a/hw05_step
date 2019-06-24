@@ -1,17 +1,10 @@
 <html>
-  <head><title>JSONを読み込む例</title></head>
+  <head><title>乗り換え案内</title></head>
   <body>
     路線：
     <ul>
-      {% for line in network %}
-      <li> {{line.Name}}
-        <ul>
-          {% for station in line["Stations"] %}
-          <li> {{station}} </li>
-          {% endfor %}
-        </ul> 
-      </li>
-      {% endfor %}
+      <li> a = {{request.get("a")}} </li>
+      <li> b = {{request.get("b")}} </li
     </ul>
   </body>
 </html>

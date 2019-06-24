@@ -7,12 +7,16 @@
       <li> 到着 = {{request.get("b")}} </li>
       <li> 乗るべき電車 = {{pata}} </li>
 　　　 <li> {% for line in nerwork %}
-	   	{% for station in line["Stations"] %}
-	   		{% if station == request.get("a") %}
-	    		{{line.Name}}
-	    		{% endif %}
-	    	{% endfor %}
-	   {% endfor %}
+      <ul>
+	{% for station in line["Stations"] %}
+	<ul>
+	  {% if station == request.get("a") %}
+	  <li>{{line.Name}}</li>
+	  {% endif %}
+        </ul>
+	{% endfor %}
+      </ul>
+      {% endfor %}
 	    
     
 	    

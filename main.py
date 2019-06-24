@@ -47,6 +47,6 @@ class Norikae(webapp2.RequestHandler):
         self.response.write(networkTmpl.render(network=network))
 
 app = webapp2.WSGIApplication([
-    ('/', Pata),
+    ('/pata', Pata),
     ('/norikae', Norikae),
 ], debug=True)

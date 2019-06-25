@@ -41,13 +41,24 @@ class Pata(webapp2.RequestHandler):
         self.response.headers['Content-Type'] = 'text/html; charset=UTF-8'
         # テンプレートの内容を埋め込んで、返事を返す。
         self.response.write(pataTmpl.render(pata=pata, request=self.request))
+        
 class Norikae(webapp2.RequestHandler):
     def get(self):
-        pata = ""
+        pata =""
+        up_queue = []
+
+        down_queue = []
+        train_line = ""
         for line in network:
-            pata+= line
+            for station in line["Stations"]:
+                if station == self.request.get("a"):
+                    train_line += line["Name"]
+        pata = train_line
+
+        #pata = pata[0]
         self.response.headers['Content-Type'] = 'text/html; charset=UTF-8'
-        self.response.write(networkTmpl.render(pata=pata, network=network))
+        self.response.write(networkTmpl.render(pata=pata, network=network, request=self.request))
+
 
 app = webapp2.WSGIApplication([
     ('/pata', Pata),
